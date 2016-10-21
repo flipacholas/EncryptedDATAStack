@@ -1,0 +1,6 @@
+framework module DATASource {
+  umbrella header "DATASource-umbrella.h"
+
+  export *
+  module * { export * }
+}
