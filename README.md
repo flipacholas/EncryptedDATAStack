@@ -45,7 +45,7 @@ let encryptedStack = EncryptedDATAStack(modelName:"MyAppModel", key:"yourHashKey
 
 **Objective-C**
 ``` objc
-DATAStack *dataStack = [[DATAStack alloc] initWithModelName:@"MyAppModel"];
+DATAStack *dataStack = [[EncryptedDATAStack alloc] initWithModelName:@"MyAppModel"];
 ```
 
 - Using a custom bundle.
