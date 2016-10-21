@@ -193,8 +193,7 @@ Rodrigo Copetti, [@flipacholas](https://twitter.com/flipacholas)
 
 Special thanks to:
 
-Elvis Nuñez, [@3lvis](https://twitter.com/3lvis)
-Project iMAS, [project-imas](https://github.com/project-imas)
+Elvis Nuñez, [@3lvis](https://twitter.com/3lvis) and Project iMAS, [project-imas](https://github.com/project-imas)
 
 ## License
 
