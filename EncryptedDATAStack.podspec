@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.summary          = 'Set up your encrypted database with only 1 line of code!'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Build your encrypted database with only 1 line of code. An extension of DATAStack with support of Encryption.
                        DESC
 
   s.homepage         = 'https://github.com/flipacholas/EncryptedDATAStack'
