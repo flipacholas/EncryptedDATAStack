@@ -13,7 +13,7 @@ podfile: Example/Podfile
 
 script: 
 - xcodebuild -workspace Example/EncryptedDATAStack.xcworkspace -scheme EncryptedDATAStack-Example -sdk iphonesimulator build test -destination 'platform=iOS Simulator,name=iPhone 6' | xcpretty -c && exit ${PIPESTATUS[0]} 
-- pod lib lint
+- pod lib lint --allow-warnings
 
 notifications:
   email: false
