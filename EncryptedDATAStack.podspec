@@ -17,7 +17,7 @@ Build your encrypted database with only 1 line of code. An extension of DATAStac
 
   s.homepage         = 'https://github.com/flipacholas/EncryptedDATAStack'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Rodrigo Copetti' => ‘flipacholas@gmail.com’ }
+  s.author           = { 'Rodrigo Copetti' => 'flipacholas@gmail.com' }
   s.source           = { :git => 'https://github.com/flipacholas/EncryptedDATAStack.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/flipacholas'
 
