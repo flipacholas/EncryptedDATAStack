@@ -1,6 +1,0 @@
-framework module EncryptedDATAStack {
-  umbrella header "EncryptedDATAStack-umbrella.h"
-
-  export *
-  module * { export * }
-}
