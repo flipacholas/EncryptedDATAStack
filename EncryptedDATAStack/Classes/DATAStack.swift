@@ -1,5 +1,5 @@
 import Foundation
-import CoreData
+import EncryptedCoreData
 
 @objc public enum DATAStackStoreType: Int {
     case InMemory, SQLite
@@ -16,7 +16,7 @@ import CoreData
 
     internal var containerURL = NSURL.directoryURL()
 
-    private var _mainContext: NSManagedObjectContext?
+    internal var _mainContext: NSManagedObjectContext?
 
     /**
      The context for the main queue. Please do not use this to mutate data, use `performInNewBackgroundContext`

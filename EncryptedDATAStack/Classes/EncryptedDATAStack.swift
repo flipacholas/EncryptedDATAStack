@@ -10,6 +10,23 @@ import EncryptedCoreData
 
 public class EncryptedDATAStack: DATAStack {
     private var hashKey: String
+    
+    override public var mainContext: NSManagedObjectContext {
+        get {
+            if _mainContext == nil {
+                let context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+                context.undoManager = nil
+                context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+                context.persistentStoreCoordinator = self.persistentStoreCoordinator
+                
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DATAStack.mainContextDidSave(_:)), name: NSManagedObjectContextDidSaveNotification, object: context)
+                
+                _mainContext = context
+            }
+            
+            return _mainContext!
+        }
+    }
 
     override internal var persistentStoreCoordinator: NSPersistentStoreCoordinator {
         get {
@@ -27,12 +44,6 @@ public class EncryptedDATAStack: DATAStack {
         }
     }
 
-    public init(hashKey:String) {
-        self.hashKey = hashKey
-        super.init()
-    }
-
-   
     public init(modelName: String, hashKey: String) {
         self.hashKey = hashKey
         
