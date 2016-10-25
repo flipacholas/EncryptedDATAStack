@@ -17,13 +17,8 @@ Support for Swift 3 will be added soon.
 
 * [Running the demos](#running-the-demos)
 * [Initialization](#initialization)
-* [Main Thread NSManagedObjectContext](#main-thread-nsmanagedobjectcontext)
-* [Background Thread NSManagedObjectContext](#background-thread-nsmanagedobjectcontext)
-* [Clean up](#clean-up)
-* [Testing](#testing)
-* [Migrations](#migrations)
 * [Installation](#installation)
-* [Improvements](#be-awesome)
+* [Improvements](#Improvements)
 * [Author](#author)
 * [License](#license)
 
