@@ -6,7 +6,7 @@ import EncryptedDATAStack
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? = {
-        let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let window = UIWindow(frame: UIScreen.main.bounds)
 
         return window
         }()
@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return dataStack
         }()
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let window = self.window {
             let viewController = ViewController(dataStack: self.dataStack)
             window.rootViewController = UINavigationController(rootViewController: viewController)
             window.makeKeyAndVisible()
         }
-
+        
         return true
     }
 }

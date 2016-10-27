@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B0418181DBAC35A0042CB03 /* DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5B0418151DBAC35A0042CB03 /* DataModel.xcdatamodel */; };
-		5B0418191DBAC35A0042CB03 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B0418161DBAC35A0042CB03 /* Model.xcdatamodeld */; };
 		5B04181C1DBAC6A40042CB03 /* DemoSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B04181A1DBAC6A40042CB03 /* DemoSwift.xcdatamodeld */; };
+		5B680FF41DC2141D009C9780 /* LightweightMigrationModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5B680FF01DC2141D009C9780 /* LightweightMigrationModel.xcdatamodel */; };
+		5B680FF51DC2141D009C9780 /* ModelGroup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B680FF11DC2141D009C9780 /* ModelGroup.xcdatamodeld */; };
+		5B680FF61DC2141D009C9780 /* SimpleModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5B680FF31DC2141D009C9780 /* SimpleModel.xcdatamodel */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -33,9 +34,10 @@
 		058DE430F84E05D54406892C /* Pods_EncryptedDATAStack_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncryptedDATAStack_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B9588F8E42F393D02D713F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		576DB806B6E46B3E9F404B4D /* Pods_EncryptedDATAStack_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EncryptedDATAStack_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B0418151DBAC35A0042CB03 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		5B0418171DBAC35A0042CB03 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5B04181B1DBAC6A40042CB03 /* DemoSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DemoSwift.xcdatamodel; sourceTree = "<group>"; };
+		5B680FF01DC2141D009C9780 /* LightweightMigrationModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LightweightMigrationModel.xcdatamodel; sourceTree = "<group>"; };
+		5B680FF21DC2141D009C9780 /* ModelGroup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelGroup.xcdatamodel; sourceTree = "<group>"; };
+		5B680FF31DC2141D009C9780 /* SimpleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleModel.xcdatamodel; sourceTree = "<group>"; };
 		5BBEB6F61DBB6917001B559B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		5BBEB6F71DBB692C001B559B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* EncryptedDATAStack_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptedDATAStack_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,8 +123,9 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				5B0418151DBAC35A0042CB03 /* DataModel.xcdatamodel */,
-				5B0418161DBAC35A0042CB03 /* Model.xcdatamodeld */,
+				5B680FF01DC2141D009C9780 /* LightweightMigrationModel.xcdatamodel */,
+				5B680FF11DC2141D009C9780 /* ModelGroup.xcdatamodeld */,
+				5B680FF31DC2141D009C9780 /* SimpleModel.xcdatamodel */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -220,14 +223,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -328,7 +333,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DDB2CA4D8D16A1178B9C88EB /* [CP] Check Pods Manifest.lock */ = {
@@ -343,7 +348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E27E22FDEAD1DF50B59E4C46 /* [CP] Embed Pods Frameworks */ = {
@@ -378,9 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B0418181DBAC35A0042CB03 /* DataModel.xcdatamodel in Sources */,
-				5B0418191DBAC35A0042CB03 /* Model.xcdatamodeld in Sources */,
+				5B680FF41DC2141D009C9780 /* LightweightMigrationModel.xcdatamodel in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				5B680FF61DC2141D009C9780 /* SimpleModel.xcdatamodel in Sources */,
+				5B680FF51DC2141D009C9780 /* ModelGroup.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,8 +425,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -464,8 +472,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -484,6 +494,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -492,13 +503,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D58A2F0C5337A96061BF02D /* Pods-EncryptedDATAStack_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EncryptedDATAStack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -506,13 +518,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9462BC3DF1C280412EFDCBB /* Pods-EncryptedDATAStack_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EncryptedDATAStack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -532,7 +545,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EncryptedDATAStack_Example.app/EncryptedDATAStack_Example";
 			};
 			name = Debug;
@@ -549,7 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EncryptedDATAStack_Example.app/EncryptedDATAStack_Example";
 			};
 			name = Release;
@@ -587,16 +600,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5B0418161DBAC35A0042CB03 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5B0418171DBAC35A0042CB03 /* Model.xcdatamodel */,
-			);
-			currentVersion = 5B0418171DBAC35A0042CB03 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		5B04181A1DBAC6A40042CB03 /* DemoSwift.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
@@ -604,6 +607,16 @@
 			);
 			currentVersion = 5B04181B1DBAC6A40042CB03 /* DemoSwift.xcdatamodel */;
 			path = DemoSwift.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		5B680FF11DC2141D009C9780 /* ModelGroup.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B680FF21DC2141D009C9780 /* ModelGroup.xcdatamodel */,
+			);
+			currentVersion = 5B680FF21DC2141D009C9780 /* ModelGroup.xcdatamodel */;
+			path = ModelGroup.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

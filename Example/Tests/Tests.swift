@@ -1,27 +1,54 @@
 import XCTest
 import EncryptedDATAStack
 
-class Tests: XCTestCase {
+extension XCTestCase {
     func createDataStack() -> EncryptedDATAStack {
-        let dataStack = EncryptedDATAStack(modelName: "Model", hashKey: "grampaPass", bundle: NSBundle(forClass: Tests.self),storeName: "Test.sqlite")
+        let dataStack = EncryptedDATAStack(modelName: "ModelGroup", hashKey: "grampaPass", bundle: Bundle(for: Tests.self),storeName: "Test.sqlite")
         let _ = try? dataStack.drop()
 
         return dataStack
     }
 
-    func insertUserInContext(context: NSManagedObjectContext) {
-        let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: context)
-        user.setValue(NSNumber(integer: 1), forKey: "remoteID")
+    @discardableResult
+    func insertUser(in context: NSManagedObjectContext) -> NSManagedObject {
+        let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+        user.setValue(NSNumber(value: 1), forKey: "remoteID")
         user.setValue("Joshua Ivanof", forKey: "name")
         try! context.save()
+        
+        return user
     }
-
-    func fetchObjectsInContext(context: NSManagedObjectContext) -> [NSManagedObject] {
-        let request = NSFetchRequest(entityName: "User")
-        let objects = try! context.executeFetchRequest(request) as! [NSManagedObject]
-
+    
+    func fetch(in context: NSManagedObjectContext) -> [NSManagedObject] {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "User")
+        let objects = try! context.fetch(request)
+        
         return objects
     }
+}
+
+class InitializerTests: XCTestCase {
+    func testInitializeUsingXCDataModel() {
+        let dataStack = EncryptedDATAStack(modelName: "SimpleModel",hashKey: "grampaPass", bundle: Bundle(for: Tests.self),storeName: "Test2.sqlite")
+        let _ = try? dataStack.drop()
+        self.insertUser(in: dataStack.mainContext)
+        let objects = self.fetch(in: dataStack.mainContext)
+        XCTAssertEqual(objects.count, 1)
+    }
+    
+    // xcdatamodeld is a container for .xcdatamodel files. It's used for versioning and migration.
+    // When moving from v1 of the model to v2, you add a new xcdatamodel to it that has v2 along with the mapping model.
+    func testInitializeUsingXCDataModeld() {
+        let dataStack = self.createDataStack()
+        
+        self.insertUser(in: dataStack.mainContext)
+        let objects = self.fetch(in: dataStack.mainContext)
+        XCTAssertEqual(objects.count, 1)
+    }
+    
+}
+
+class Tests: XCTestCase {
 
     func testSynchronousBackgroundContext() {
         let dataStack = self.createDataStack()
@@ -34,92 +61,86 @@ class Tests: XCTestCase {
         XCTAssertTrue(synchronous)
     }
 
-    func testBackgroundContextSave() {
-        let dataStack = self.createDataStack()
-
-        dataStack.performInNewBackgroundContext { backgroundContext in
-            self.insertUserInContext(backgroundContext)
-
-            let objects = self.fetchObjectsInContext(backgroundContext)
-            XCTAssertEqual(objects.count, 1)
-        }
-
-        let objects = self.fetchObjectsInContext(dataStack.mainContext)
-        XCTAssertEqual(objects.count, 1)
-    }
-
     func testNewBackgroundContextSave() {
         var synchronous = false
         let dataStack = self.createDataStack()
         let backgroundContext = dataStack.newBackgroundContext()
-        backgroundContext.performBlockAndWait {
+        backgroundContext.performAndWait {
             synchronous = true
-            self.insertUserInContext(backgroundContext)
-            let objects = self.fetchObjectsInContext(backgroundContext)
+            self.insertUser(in: backgroundContext)
+            let objects = self.fetch(in: backgroundContext)
             XCTAssertEqual(objects.count, 1)
         }
-
-        let objects = self.fetchObjectsInContext(dataStack.mainContext)
+        
+        let objects = self.fetch(in: dataStack.mainContext)
         XCTAssertEqual(objects.count, 1)
-
+        
         XCTAssertTrue(synchronous)
     }
 
     func testRequestWithDictionaryResultType() {
         let dataStack = self.createDataStack()
-        self.insertUserInContext(dataStack.mainContext)
-
-        let request = NSFetchRequest(entityName: "User")
-        let objects = try! dataStack.mainContext.executeFetchRequest(request)
+        self.insertUser(in: dataStack.mainContext)
+        
+        let request = NSFetchRequest<NSManagedObject>(entityName: "User")
+        let objects = try! dataStack.mainContext.fetch(request)
         XCTAssertEqual(objects.count, 1)
-
+        
         let expression = NSExpressionDescription()
         expression.name = "objectID"
         expression.expression = NSExpression.expressionForEvaluatedObject()
-        expression.expressionResultType = .ObjectIDAttributeType
-
-        let dictionaryRequest = NSFetchRequest(entityName: "User")
-        dictionaryRequest.resultType = .DictionaryResultType
+        expression.expressionResultType = .objectIDAttributeType
+        
+        let dictionaryRequest = NSFetchRequest<NSDictionary>(entityName: "User")
+        dictionaryRequest.resultType = .dictionaryResultType
         dictionaryRequest.propertiesToFetch = [expression, "remoteID"]
-
-        let dictionaryObjects = try! dataStack.mainContext.executeFetchRequest(dictionaryRequest)
+        
+        let dictionaryObjects = try! dataStack.mainContext.fetch(dictionaryRequest)
         XCTAssertEqual(dictionaryObjects.count, 1)
     }
-
+    
     func testDisposableContextSave() {
         let dataStack = self.createDataStack()
-
+        
         let disposableContext = dataStack.newDisposableMainContext()
-        self.insertUserInContext(disposableContext)
-        let objects = self.fetchObjectsInContext(disposableContext)
+        self.insertUser(in: disposableContext)
+        let objects = self.fetch(in: disposableContext)
         XCTAssertEqual(objects.count, 0)
     }
-
+    
     func testDrop() {
         let dataStack = self.createDataStack()
-
+        
         dataStack.performInNewBackgroundContext { backgroundContext in
-            self.insertUserInContext(backgroundContext)
+            self.insertUser(in: backgroundContext)
         }
-
-        let objectsA = self.fetchObjectsInContext(dataStack.mainContext)
+        
+        let objectsA = self.fetch(in: dataStack.mainContext)
         XCTAssertEqual(objectsA.count, 1)
-
-        let _ = try? dataStack.drop()
-
-        let objects = self.fetchObjectsInContext(dataStack.mainContext)
-        XCTAssertEqual(objects.count, 0)
-    }
-
-    func testAlternativeModel() {
-        let dataStack = EncryptedDATAStack(modelName: "DataModel", hashKey: "grampaPass", bundle: NSBundle(forClass: Tests.self),storeName: "Test2.sqlite")
+        
         let _ = try? dataStack.drop()
         
-        self.insertUserInContext(dataStack.mainContext)
-
-        let objects = self.fetchObjectsInContext(dataStack.mainContext)
+        let objects = self.fetch(in: dataStack.mainContext)
+        XCTAssertEqual(objects.count, 0)
+    }
+    
+    func testAutomaticMigration() {
+        let firstDataStack = DATAStack(modelName: "SimpleModel", bundle: Bundle(for: Tests.self), storeType: .sqLite, storeName: "Shared")
+        self.insertUser(in: firstDataStack.mainContext)
+        let objects = self.fetch(in: firstDataStack.mainContext)
         XCTAssertEqual(objects.count, 1)
-
-        XCTAssertNotNil(dataStack)
+        
+        // LightweightMigrationModel is a copy of DataModel with the main difference that adds the updatedDate attribute.
+        let secondDataStack = DATAStack(modelName: "LightweightMigrationModel", bundle: Bundle(for: Tests.self), storeType: .sqLite, storeName: "Shared")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "remoteID = %@", NSNumber(value: 1))
+        let user = try! secondDataStack.mainContext.fetch(fetchRequest).first
+        XCTAssertNotNil(user)
+        XCTAssertEqual(user?.value(forKey: "name") as? String, "Joshua Ivanof")
+        user?.setValue(Date().addingTimeInterval(16000), forKey: "updatedDate")
+        try! secondDataStack.mainContext.save()
+        
+        try! firstDataStack.drop()
+        try! secondDataStack.drop()
     }
 }

@@ -9,33 +9,17 @@
 import EncryptedCoreData
 
 public class EncryptedDATAStack: DATAStack {
-    private var hashKey: String
+    fileprivate var hashKey: String
     
-    override public var mainContext: NSManagedObjectContext {
-        get {
-            if _mainContext == nil {
-                let context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-                context.undoManager = nil
-                context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
-                context.persistentStoreCoordinator = self.persistentStoreCoordinator
-                
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DATAStack.mainContextDidSave(_:)), name: NSManagedObjectContextDidSaveNotification, object: context)
-                
-                _mainContext = context
-            }
-            
-            return _mainContext!
-        }
-    }
 
     override internal var persistentStoreCoordinator: NSPersistentStoreCoordinator {
         get {
             if _persistentStoreCoordinator == nil {
                 let filePath = (storeName ?? modelName) + ".sqlite"
-                let storeURL = containerURL.URLByAppendingPathComponent(filePath)
+                let storeURL = containerURL.appendingPathComponent(filePath)
                 let model = NSManagedObjectModel(bundle: self.modelBundle, name: self.modelName)
-                let options = [EncryptedStorePassphraseKey: self.hashKey, EncryptedStoreDatabaseLocation: storeURL!]
-                let persistentStoreCoordinator = EncryptedStore.makeStoreWithOptions(options, managedObjectModel: model)
+                let options = [EncryptedStorePassphraseKey: self.hashKey, EncryptedStoreDatabaseLocation: storeURL] as [String : Any]
+                let persistentStoreCoordinator = EncryptedStore.make(options: options, managedObjectModel: model)
                 
                 _persistentStoreCoordinator = persistentStoreCoordinator
             }
@@ -53,25 +37,25 @@ public class EncryptedDATAStack: DATAStack {
 
    
   
-    public init(modelName: String, hashKey: String, bundle: NSBundle) {
+    public init(modelName: String, hashKey: String, bundle: Bundle) {
         self.hashKey = hashKey
 
-        super.init(modelName: modelName, bundle: bundle, storeType: .SQLite)
+        super.init(modelName: modelName, bundle: bundle, storeType: .sqLite)
     }
 
     
-    public init(modelName: String, hashKey: String, bundle: NSBundle, storeName: String) {
+    public init(modelName: String, hashKey: String, bundle: Bundle, storeName: String) {
         self.hashKey = hashKey
 
-        super.init(modelName: modelName, bundle: bundle, storeType: .SQLite, storeName: storeName)
+        super.init(modelName: modelName, bundle: bundle, storeType: .sqLite, storeName: storeName)
     }
 
     
-    public init(modelName: String, hashKey: String, bundle: NSBundle, storeName: String, containerURL: NSURL) {
+    public init(modelName: String, hashKey: String, bundle: Bundle, storeName: String, containerURL: URL) {
         
         self.hashKey = hashKey
 
-        super.init(modelName: modelName, bundle: bundle, storeType: .SQLite, storeName: storeName, containerURL: containerURL)
+        super.init(modelName: modelName, bundle: bundle, storeType: .sqLite, storeName: storeName, containerURL: containerURL)
     }
 
 }
