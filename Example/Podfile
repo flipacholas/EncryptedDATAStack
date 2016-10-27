@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'EncryptedDATAStack_Example' do
   pod 'EncryptedDATAStack', :path => '../'
-  pod 'DATASource’, '~> 6'
+  pod 'DATASource’, '~> 6.1.1'
 
   target 'EncryptedDATAStack_Tests' do
     inherit! :search_paths

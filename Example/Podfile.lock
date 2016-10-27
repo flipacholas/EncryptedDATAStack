@@ -2,7 +2,7 @@ PODS:
   - DATASource (6.1.1)
   - EncryptedCoreData (3.1):
     - SQLCipher (~> 3.4.0)
-  - EncryptedDATAStack (1.0.0):
+  - EncryptedDATAStack (2.0.0):
     - EncryptedCoreData (~> 3.1)
   - SQLCipher (3.4.0):
     - SQLCipher/standard (= 3.4.0)
@@ -11,7 +11,7 @@ PODS:
     - SQLCipher/common
 
 DEPENDENCIES:
-  - DATASource (~> 6)
+  - DATASource (~> 6.1.1)
   - EncryptedDATAStack (from `../`)
 
 EXTERNAL SOURCES:
@@ -21,9 +21,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   DATASource: fa895931841523f62c1378cbc53ef2de87e5cf30
   EncryptedCoreData: f6762fb05f88a52f36c5648659abc91b57f244b4
-  EncryptedDATAStack: 3b26a2927bb4a1896fd3df6f34a784d51b941ec3
+  EncryptedDATAStack: f1cf65d0122252f3ecfab981b15e28441cb27d40
   SQLCipher: 4c768761421736a247ed6cf412d9045615d53dff
 
-PODFILE CHECKSUM: 3f6fc28c8f0ec5d4070b7a0df47aed9c3976fdee
+PODFILE CHECKSUM: 4300aa5ad2cff52737da731a243b640058555319
 
 COCOAPODS: 1.1.1
