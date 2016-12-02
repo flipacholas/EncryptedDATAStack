@@ -13,7 +13,7 @@ Set up an encrypted Database with only 1 line of code!
 
 ## Table of Contents
 
-* [Running the demos](#running-the-demos)
+* [Running the demos](#running-the-demo)
 * [Initialization](#initialization)
 * [Installation](#installation)
 * [Improvements](#Improvements)
