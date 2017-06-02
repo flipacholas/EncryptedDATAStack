@@ -85,5 +85,6 @@ Elvis Nuñez, [@3lvis](https://twitter.com/3lvis) and Project iMAS, [project-ima
 
 ## License
 
-**EncryptedDATAStack** is available under the Affero GPL v3 Licence.\n
+**EncryptedDATAStack** is available under the Affero GPL v3 Licence.
+
 ...Just kidding, MIT license for you. See the LICENSE file for more info.
