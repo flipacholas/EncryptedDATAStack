@@ -8,11 +8,11 @@ podfile: Example/Podfile
 # - pod install --project-directory=Example
 
 #script:
-#- set -o pipefail && xcodebuild test -workspace Example/EncryptedDATAStack.xcworkspace -scheme EncryptedDATAStack-Example -destination 'platform=iOS Simulator,name=iPhone 6' ONLY_ACTIVE_ARCH=NO | xcpretty
+#- set -o pipefail && xcodebuild test -workspace Example/EncryptedDATAStack.xcworkspace -scheme EncryptedDATAStack-Example -destination 'platform=iOS Simulator,name=iPhone 7' ONLY_ACTIVE_ARCH=NO | xcpretty
 #- pod lib lint
 
 script: 
-- xcodebuild -workspace Example/EncryptedDATAStack.xcworkspace -scheme EncryptedDATAStack-Example -sdk iphonesimulator build test -destination 'platform=iOS Simulator,name=iPhone 6' | xcpretty -c && exit ${PIPESTATUS[0]} 
+- xcodebuild -workspace Example/EncryptedDATAStack.xcworkspace -scheme EncryptedDATAStack-Example -sdk iphonesimulator build test -destination 'platform=iOS Simulator,name=iPhone 7' | xcpretty -c && exit ${PIPESTATUS[0]}
 - pod lib lint --allow-warnings
 
 notifications:

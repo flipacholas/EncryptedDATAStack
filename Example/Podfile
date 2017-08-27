@@ -2,7 +2,8 @@ use_frameworks!
 
 target 'EncryptedDATAStack_Example' do
   pod 'EncryptedDATAStack', :path => '../'
-  pod 'DATASource’, '~> 6.1.1'
+  pod 'DATASource’, '~> 6.1.5'
+  pod 'EncryptedCoreData', :git => 'https://github.com/project-imas/encrypted-core-data.git'
 
   target 'EncryptedDATAStack_Tests' do
     inherit! :search_paths

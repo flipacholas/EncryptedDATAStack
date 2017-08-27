@@ -8,22 +8,22 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EncryptedDATAStack'
-  s.version          = '2.0.0'
+  s.version          = '7.0.3'
   s.summary          = 'Set up your encrypted database with only 1 line of code!'
 
   s.description      = <<-DESC
-Build your encrypted database with only 1 line of code. An extension of DATAStack with support of Encryption.
+Build your encrypted database with only 1 line of code. Fork of DATAStack with support for Encryption.
                        DESC
 
   s.homepage         = 'https://github.com/flipacholas/EncryptedDATAStack'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Rodrigo Copetti' => 'flipacholas@gmail.com' }
+  s.author           = { 'Rodrigo Copetti' => 'rodrigo.copetti@outlook.com' }
   s.source           = { :git => 'https://github.com/flipacholas/EncryptedDATAStack.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/flipacholas'
 
   s.ios.deployment_target = '8.0'
   s.source_files = 'EncryptedDATAStack/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'EncryptedDATAStack' => ['EncryptedDATAStack/Assets/*.png']
   # }

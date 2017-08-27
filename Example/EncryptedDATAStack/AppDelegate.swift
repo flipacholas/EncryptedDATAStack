@@ -1,5 +1,4 @@
 import UIKit
-import CoreData
 import EncryptedDATAStack
 
 @UIApplicationMain
@@ -9,13 +8,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
 
         return window
-        }()
+    }()
 
     var dataStack: EncryptedDATAStack = {
-        let dataStack = EncryptedDATAStack(modelName: "DemoSwift", hashKey: "grampaPass")
+        let dataStack = EncryptedDATAStack(passphraseKey:"randomPassj", modelName: "DemoSwift")
 
         return dataStack
-        }()
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let window = self.window {
@@ -23,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.rootViewController = UINavigationController(rootViewController: viewController)
             window.makeKeyAndVisible()
         }
-        
+
         return true
     }
 }
