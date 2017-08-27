@@ -3,9 +3,10 @@ language: objective-c
 
 # cache: cocoapods
 podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
+before_install:
+ - gem install cocoapods # Since Travis is not always on latest version
+ - pod repo update
+ - pod install --project-directory=Example
 
 #script:
 #- set -o pipefail && xcodebuild test -workspace Example/EncryptedDATAStack.xcworkspace -scheme EncryptedDATAStack-Example -destination 'platform=iOS Simulator,name=iPhone 7' ONLY_ACTIVE_ARCH=NO | xcpretty
