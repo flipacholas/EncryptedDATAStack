@@ -19,7 +19,12 @@ Version tags are set to match the version of DATAStack used.
 * [Running the demos](#running-the-demo)
 * [Initialization](#initialization)
 * [Installation](#installation)
-* [Improvements](#Improvements)
+* [Main Thread NSManagedObjectContext](#main-thread-nsmanagedobjectcontext)
+* [Background Thread NSManagedObjectContext](#background-thread-nsmanagedobjectcontext)
+* [Clean up](#clean-up)
+* [Testing](#testing)
+* [Migrations](#migrations)
+* [Improvements](#improvements)
 * [Author](#author)
 * [License](#license)
 
