@@ -188,6 +188,7 @@ If `EncryptedDATAStack` has troubles creating your persistent coordinator becaus
 use_frameworks!
 
 pod 'EncryptedDATAStack', :git => 'https://github.com/flipacholas/EncryptedDATAStack.git'
+pod 'EncryptedCoreData', :git => 'https://github.com/project-imas/encrypted-core-data'
 ```
 
 ## Improvements
