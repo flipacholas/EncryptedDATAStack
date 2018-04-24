@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EncryptedDATAStack'
-  s.version          = '7.0.3'
+  s.version          = '8.0.0'
   s.summary          = 'Set up your encrypted database with only 1 line of code!'
 
   s.description      = <<-DESC
