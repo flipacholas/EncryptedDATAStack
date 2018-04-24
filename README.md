@@ -1,6 +1,6 @@
 # EncryptedDATAStack
 [![](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]()
-[![](http://img.shields.io/badge/Swift-3-red.svg)]()
+[![](http://img.shields.io/badge/Swift-4-red.svg)]()
 [![CI Status](http://img.shields.io/travis/flipacholas/EncryptedDATAStack.svg?style=flat)](https://travis-ci.org/flipacholas/EncryptedDATAStack)
 [![Version](https://img.shields.io/cocoapods/v/EncryptedDATAStack.svg?style=flat)](http://cocoapods.org/pods/EncryptedDATAStack)
 [![License](https://img.shields.io/cocoapods/l/EncryptedDATAStack.svg?style=flat)](http://cocoapods.org/pods/EncryptedDATAStack)
@@ -8,7 +8,7 @@
 
 Set up an encrypted Database with only 1 line of code!
 
-**EncryptedDATAStack** is an fork of [DATAStack](https://github.com/SyncDB/DATAStack)  with added support of [Encrypted Core Data](https://github.com/project-imas/encrypted-core-data) (Core Data + SQLCipher) and extra legacy support for iOS 8.
+**EncryptedDATAStack** is an fork of [DATAStack](https://github.com/SyncDB/DATAStack)  with added support of [Encrypted Core Data](https://github.com/project-imas/encrypted-core-data) (Core Data + SQLCipher) and extra legacy support for iOS 9.
 All in all, this allows you to set up a database (encrypted and/or unencrypted) with only one line of code!
 
 Version tags are set to match the version of DATAStack used.
