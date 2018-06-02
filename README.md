@@ -8,7 +8,7 @@
 
 Set up an encrypted Database with only 1 line of code!
 
-**EncryptedDATAStack** is an fork of [DATAStack](https://github.com/SyncDB/DATAStack)  with added support of [Encrypted Core Data](https://github.com/project-imas/encrypted-core-data) (Core Data + SQLCipher) and extra legacy support for iOS 8.
+**EncryptedDATAStack** is a fork of [DATAStack](https://github.com/SyncDB/DATAStack)  with added support of [Encrypted Core Data](https://github.com/project-imas/encrypted-core-data) (Core Data + SQLCipher) and extra legacy support for iOS 8.
 All in all, this allows you to set up a database (encrypted and/or unencrypted) with only one line of code!
 
 Version tags are set to match the version of DATAStack used.
@@ -189,6 +189,16 @@ use_frameworks!
 
 pod 'EncryptedDATAStack', :git => 'https://github.com/flipacholas/EncryptedDATAStack.git'
 pod 'EncryptedCoreData', :git => 'https://github.com/project-imas/encrypted-core-data'
+```
+
+## Possible bugs
+
+The latest version might not be suitable for some particular tasks, if you are having problems try the 2.0 branch:
+
+```ruby
+use_frameworks!
+
+pod 'EncryptedDATAStack', '~> 2.0.0'
 ```
 
 ## Improvements
